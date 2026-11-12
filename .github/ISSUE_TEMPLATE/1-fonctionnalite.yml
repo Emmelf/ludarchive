@@ -1,0 +1,45 @@
+name: Fonctionnalité
+description: Une fonctionnalité du cahier des charges fonctionnel à implémenter
+type: Feature
+assignees:
+  - Emmelf
+body:
+  - type: dropdown
+    id: cdcf
+    attributes:
+      label: Fonctionnalité du CDCF
+      description: La section du cahier des charges fonctionnel concernée.
+      options:
+        - F1 Comptes et authentification
+        - F2 Profil et paramètres
+        - "F3 Ludothèque : collection et wishlist"
+        - F4 Notation
+        - F5 Recherche
+        - F6 Fiche jeu
+        - F7 Fiches liées
+        - F8 Commentaires
+        - F9 Page d'accueil
+        - F10 Alimentation du catalogue
+        - F11 Administration
+        - F12 Signalement de contenus
+    validations:
+      required: true
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User story
+      description: Qui veut quoi, et pourquoi.
+      placeholder: En tant que membre, je veux ajouter un jeu à ma wishlist afin de m'en souvenir.
+    validations:
+      required: true
+  - type: textarea
+    id: criteres
+    attributes:
+      label: Critères d'acceptation
+      description: Les conditions précises à remplir pour que la fonctionnalité soit terminée.
+      placeholder: |
+        - Le bouton Wishlist est visible sur la fiche jeu pour un membre connecté
+        - Choisir Wishlist retire le jeu de la collection
+        - Le nombre de membres ayant ajouté le jeu est affiché
+    validations:
+      required: true
