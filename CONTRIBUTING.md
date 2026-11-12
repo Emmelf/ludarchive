@@ -18,6 +18,8 @@ Ludarchive est un projet de formation individuel (IPSSI, Concepteur Développeur
   | P1 | Important : nécessaire à l'objectif du produit |
   | P2 | Souhaitable : peut être allégé ou repoussé en cas de retard |
 
+- **Une pull request = un type de commit.** Une tâche qui en couvre plusieurs, ou trop grosse pour une seule pull request, se découpe en **sous-issues** : chacune a sa branche et sa pull request, l'issue parente regroupe le tout et se ferme quand toutes ses sous-issues sont terminées.
+- Une sous-issue de fonctionnalité est **verticale** : elle livre une fonctionnalité utilisable de bout en bout (API, interface, tests), faisable en un ou deux jours.
 - Suivi sur le tableau GitHub Projects : [Ludarchive](https://github.com/users/Emmelf/projects/4).
 - Circuit d'une issue : *Backlog* → *Ready* (sprint planning) → *In progress* → *In review* (pull request ouverte) → *Done* (pull request fusionnée).
 
