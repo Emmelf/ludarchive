@@ -1,0 +1,31 @@
+name: Tâche
+description: Documentation, outillage ou réorganisation du code
+type: Task
+assignees:
+  - Emmelf
+body:
+  - type: dropdown
+    id: categorie
+    attributes:
+      label: Catégorie
+      description: Détermine la catégorie de Definition of Done de la pull request.
+      options:
+        - Documentation
+        - Outillage (CI, Docker, déploiement, configuration)
+        - Code (refactorisation, tests)
+    validations:
+      required: true
+  - type: textarea
+    id: travail
+    attributes:
+      label: Ce qu'il faut faire
+      placeholder: Ajouter le CONTRIBUTING.md et le modèle de pull request.
+    validations:
+      required: true
+  - type: textarea
+    id: resultat
+    attributes:
+      label: Résultat attendu
+      placeholder: Les règles de contribution sont dans develop et le modèle de PR pré-remplit chaque nouvelle pull request.
+    validations:
+      required: true
