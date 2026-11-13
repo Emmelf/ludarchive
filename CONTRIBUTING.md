@@ -9,19 +9,43 @@ Ludarchive est un projet de formation individuel (IPSSI, Concepteur Développeur
 ## Organisation du travail
 
 - Méthode [Scrum](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-French.pdf) adaptée au travail en solo, en sprints de **2 semaines**.
-- **Une tâche = une issue** GitHub, créée à partir d'un modèle : *Fonctionnalité*, *Bug* ou *Tâche*.
-- **Priorité** de chaque issue :
-
-  | Priorité | Sens |
-    |---|---|
-  | P0 | Critique ou bloquant : mise en place, bug qui casse le site |
-  | P1 | Important : nécessaire à l'objectif du produit |
-  | P2 | Souhaitable : peut être allégé ou repoussé en cas de retard |
-
-- **Une pull request = un type de commit.** Une tâche qui en couvre plusieurs, ou trop grosse pour une seule pull request, se découpe en **sous-issues** : chacune a sa branche et sa pull request, l'issue parente regroupe le tout et se ferme quand toutes ses sous-issues sont terminées.
-- Une sous-issue de fonctionnalité est **verticale** : elle livre une fonctionnalité utilisable de bout en bout (API, interface, tests), faisable en un ou deux jours.
 - Suivi sur le tableau GitHub Projects : [Ludarchive](https://github.com/users/Emmelf/projects/4).
 - Circuit d'une issue : *Backlog* → *Ready* (sprint planning) → *In progress* → *In review* (pull request ouverte) → *Done* (pull request fusionnée).
+
+## Issues
+
+**Une tâche = une issue**, créée à partir d'un modèle : *Fonctionnalité*, *Bug* ou *Tâche*.
+
+### Priorité
+
+| Priorité | Sens |
+|---|---|
+| P0 | Critique ou bloquant : mise en place, bug qui casse le site |
+| P1 | Important : nécessaire à l'objectif du produit |
+| P2 | Souhaitable : peut être allégé ou repoussé en cas de retard |
+
+### Découpage en sous-issues
+
+**Une pull request = un type de commit.** Une tâche qui en couvre plusieurs, ou trop grosse pour une seule pull request, devient une **issue parente** découpée en **sous-issues**.
+
+| | Issue parente | Sous-issue |
+|---|---|---|
+| Rôle | regroupe et mesure l'avancement | porte le travail |
+| Branche et pull request | aucune | une chacune, avec `Closes #` + numéro de la sous-issue |
+| Sprint | aucun | celui où elle est faite |
+| Fermeture | manuelle, quand toutes les sous-issues sont terminées | automatique, à la fusion |
+
+Une sous-issue de fonctionnalité est **verticale** : elle livre une fonctionnalité utilisable de bout en bout (API, interface, tests), faisable en un ou deux jours.
+
+Exemple :
+
+```
+Comptes et authentification
+├─ Configurer l'envoi d'emails                       → build: configurer l'envoi d'emails avec Brevo
+├─ S'inscrire par email avec vérification de l'adresse → feat: ajouter l'inscription par email
+├─ Se connecter et se déconnecter                     → feat: ajouter la connexion et la déconnexion
+└─ Réinitialiser son mot de passe par email           → feat: ajouter la réinitialisation du mot de passe
+```
 
 ## Branches
 
