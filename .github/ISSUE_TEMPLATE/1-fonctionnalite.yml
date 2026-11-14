@@ -1,14 +1,14 @@
 name: Fonctionnalité
-description: Une fonctionnalité du cahier des charges fonctionnel à implémenter
+description: Une fonctionnalité du cahier des charges à implémenter
 type: Feature
 assignees:
   - Emmelf
 body:
   - type: dropdown
-    id: cdcf
+    id: fonctionnalite
     attributes:
-      label: Fonctionnalité du CDCF
-      description: La section du cahier des charges fonctionnel concernée.
+      label: Fonctionnalité du cahier des charges
+      description: La section du cahier des charges concernée.
       options:
         - F1 Comptes et authentification
         - F2 Profil et paramètres
@@ -38,8 +38,8 @@ body:
       label: Critères d'acceptation
       description: Les conditions précises à remplir pour que la fonctionnalité soit terminée.
       placeholder: |
-        - Le bouton Wishlist est visible sur la fiche jeu pour un membre connecté
-        - Choisir Wishlist retire le jeu de la collection
-        - Le nombre de membres ayant ajouté le jeu est affiché
+        - Étant donné un membre connecté sur une fiche jeu, quand il choisit Wishlist, alors le jeu apparaît dans sa wishlist
+        - Étant donné un jeu dans sa collection, quand il choisit Wishlist, alors le jeu quitte la collection
+        - Étant donné un visiteur non connecté, quand il choisit Wishlist, alors il est invité à se connecter
     validations:
       required: true

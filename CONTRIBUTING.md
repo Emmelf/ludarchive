@@ -24,6 +24,8 @@ Ludarchive est un projet de formation individuel (IPSSI, Concepteur Développeur
 | P1 | Important : nécessaire à l'objectif du produit |
 | P2 | Souhaitable : peut être allégé ou repoussé en cas de retard |
 
+Si le projet est découpé en lots, les fonctionnalités du lot 2 sont en P2.
+
 ### Découpage en sous-issues
 
 **Une pull request = un type de commit.** Une tâche qui en couvre plusieurs, ou trop grosse pour une seule pull request, devient une **issue parente** découpée en **sous-issues**.
@@ -40,7 +42,7 @@ Une sous-issue de fonctionnalité est **verticale** : elle livre une fonctionnal
 Exemple :
 
 ```
-Comptes et authentification
+Comptes et authentification (issue parente, Feature)
 ├─ Configurer l'envoi d'emails                       → build: configurer l'envoi d'emails avec Brevo
 ├─ S'inscrire par email avec vérification de l'adresse → feat: ajouter l'inscription par email
 ├─ Se connecter et se déconnecter                     → feat: ajouter la connexion et la déconnexion
@@ -125,7 +127,7 @@ Les versions suivent le [versionnage sémantique](https://semver.org/lang/fr/) `
 | CORRECTIF + 1 | Correctif urgent entre deux sprints | `0.2.0` → `0.2.1` |
 | MAJEUR + 1 | Première version stable, puis changement incompatible | `0.7.0` → `1.0.0` |
 
-Quand un chiffre augmente, ceux à sa droite repassent à 0. Les versions `0.x` désignent le produit en développement ; la livraison du dernier sprint du projet est la version `1.0.0`.
+Quand un chiffre augmente, ceux à sa droite repassent à 0. Les versions `0.x` désignent le produit en développement ; la première version complète mise en production est la version `1.0.0`.
 
 ### Fin de sprint
 
