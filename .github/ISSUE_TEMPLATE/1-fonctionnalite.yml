@@ -1,0 +1,33 @@
+name: Fonctionnalité
+description: Une fonctionnalité du cahier des charges à implémenter
+type: Feature
+assignees:
+  - Emmelf
+body:
+  - type: input
+    id: exigences
+    attributes:
+      label: Exigences du cahier des charges
+      description: Les identifiants des exigences couvertes.
+      placeholder: F3.1, F3.2
+    validations:
+      required: true
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User story
+      description: Qui veut quoi, et pourquoi.
+      placeholder: En tant que membre, je veux ajouter un jeu à ma wishlist afin de m'en souvenir.
+    validations:
+      required: true
+  - type: textarea
+    id: criteres
+    attributes:
+      label: Critères d'acceptation
+      description: Les conditions précises à remplir pour que la fonctionnalité soit terminée.
+      placeholder: |
+        - Étant donné un membre connecté sur une fiche jeu, quand il choisit Wishlist, alors le jeu apparaît dans sa wishlist
+        - Étant donné un jeu dans sa collection, quand il choisit Wishlist, alors le jeu quitte la collection
+        - Étant donné un visiteur non connecté, quand il choisit Wishlist, alors il est invité à se connecter
+    validations:
+      required: true

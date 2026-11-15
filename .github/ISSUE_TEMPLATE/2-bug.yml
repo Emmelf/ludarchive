@@ -1,0 +1,42 @@
+name: Bug
+description: Un comportement incorrect à corriger
+type: Bug
+assignees:
+  - Emmelf
+body:
+  - type: textarea
+    id: constat
+    attributes:
+      label: Ce qui se passe
+      placeholder: Le bouton Wishlist déborde de l'écran.
+    validations:
+      required: true
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Ce qui était attendu
+      placeholder: Le bouton reste dans la fiche, sous la jaquette.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Étapes pour reproduire
+      placeholder: |
+        1. Se connecter
+        2. Ouvrir une fiche jeu sur mobile
+        3. …
+    validations:
+      required: true
+  - type: dropdown
+    id: environnement
+    attributes:
+      label: Environnement
+      multiple: true
+      options:
+        - Mobile
+        - Desktop
+        - Développement (local)
+        - Production
+    validations:
+      required: true
