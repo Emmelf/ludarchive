@@ -10,7 +10,18 @@ Ludarchive est un projet de formation individuel (IPSSI, Concepteur Développeur
 
 - Méthode [Scrum](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-French.pdf) adaptée au travail en solo, en sprints de **2 semaines**.
 - Suivi sur le tableau GitHub Projects : [Ludarchive](https://github.com/users/Emmelf/projects/5).
-- Circuit d'une issue : *Backlog* → *Ready* (sprint planning) → *In progress* → *In review* (pull request ouverte) → *Done* (pull request fusionnée).
+
+Circuit d'une issue sur le tableau :
+
+| Statut | Quand | Déplacement |
+|---|---|---|
+| *Backlog* | création de l'issue | automatique |
+| *Ready* | sprint planning | à la main |
+| *In progress* | début du travail | à la main |
+| *In review* | pull request ouverte | automatique |
+| *Done* | pull request fusionnée | automatique |
+
+Une issue parente n'a pas de pull request : ses passages en *In progress* et en *Done* sont faits à la main.
 
 ## Issues
 
@@ -28,25 +39,26 @@ Avec la méthode MoSCoW : les *Must have* (le MVP) sont en P0 ou P1, les *Should
 
 ### Découpage en sous-issues
 
-**Une pull request = un type de commit.** Une tâche qui en couvre plusieurs, ou trop grosse pour une seule pull request, devient une **issue parente** découpée en **sous-issues**.
+**Une pull request = un type de commit.** Une issue qui en couvre plusieurs, ou qui dépasse deux jours de travail, devient une **issue parente** découpée en **sous-issues**.
 
 | | Issue parente | Sous-issue |
 |---|---|---|
-| Rôle | regroupe et mesure l'avancement | porte le travail |
+| Contenu | le besoin : user story, critères d'acceptation | un livrable ; titre = titre de sa pull request, sans le type |
 | Branche et pull request | aucune | une chacune, avec `Closes #` + numéro de la sous-issue |
-| Sprint | aucun | celui où elle est faite |
-| Fermeture | manuelle, quand toutes les sous-issues sont terminées | automatique, à la fusion |
+| Sprint | celui où elle se termine ; aucun si elle s'étale sur plusieurs sprints (*epic*) | celui de sa parente |
+| Priorité | selon le tableau ci-dessus | celle de sa parente |
+| Statut | déplacé à la main : *In progress* à la première sous-issue commencée, *Done* après la dernière | circuit normal |
 
-Une sous-issue de fonctionnalité est **verticale** : elle livre une fonctionnalité utilisable de bout en bout (API, interface, tests), faisable en un ou deux jours.
+Une sous-issue de code est **verticale** : utilisable de bout en bout (données, API, interface, tests). Les travaux de documentation ou d'outillage dont la parente a besoin (maquette, modèle de données, configuration) sont des sous-issues à part.
 
 Exemple :
 
 ```
-Comptes et authentification (issue parente, Feature)
-├─ Configurer l'envoi d'emails                       → build: configurer l'envoi d'emails avec Brevo
-├─ S'inscrire par email avec vérification de l'adresse → feat: ajouter l'inscription par email
-├─ Se connecter et se déconnecter                     → feat: ajouter la connexion et la déconnexion
-└─ Réinitialiser son mot de passe par email           → feat: ajouter la réinitialisation du mot de passe
+Importer un jeu depuis IGDB par son nom (parente, Feature, sprint 1)
+├─ Documenter les données IGDB utilisées    → docs: documenter les données IGDB utilisées
+├─ Concevoir le MCD du catalogue            → docs: concevoir le MCD du catalogue
+├─ Importer un jeu principal par son nom    → feat: importer un jeu principal par son nom
+└─ Rattacher les portages et les éditions   → feat: rattacher les portages et les éditions au jeu de base
 ```
 
 ## Branches
