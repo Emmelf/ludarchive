@@ -1,0 +1,13 @@
+# Développement : lu automatiquement par « docker compose » après compose.yaml
+services:
+  php:
+    volumes:
+      # Le code de back/ est lu directement par le conteneur
+      - ./back:/app
+      # var/ (cache, logs) reste dans le conteneur : plus rapide
+      - /app/var
+
+  database:
+    ports:
+      # Accès à la base depuis PhpStorm
+      - "5432:5432"

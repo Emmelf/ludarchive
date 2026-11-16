@@ -1,0 +1,37 @@
+services:
+  php:
+    build: ./back
+    environment:
+      # localhost : accès depuis le navigateur ; php:80 : accès interne des autres conteneurs
+      SERVER_NAME: ${SERVER_NAME:-localhost, php:80}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-ludarchive}:${POSTGRES_PASSWORD:-!ChangeMe!}@database:5432/${POSTGRES_DB:-ludarchive}?serverVersion=18&charset=utf8
+    depends_on:
+      database:
+        condition: service_healthy
+    volumes:
+      # Certificats créés par Caddy, conservés entre deux démarrages
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+
+  database:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ludarchive}
+      POSTGRES_USER: ${POSTGRES_USER:-ludarchive}
+      # Valeur de développement : en production, variable d'environnement du serveur
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB:-ludarchive}", "-U", "${POSTGRES_USER:-ludarchive}"]
+      interval: 5s
+      retries: 10
+    volumes:
+      - database_data:/var/lib/postgresql
+
+volumes:
+  caddy_data:
+  caddy_config:
+  database_data:

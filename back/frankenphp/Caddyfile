@@ -1,0 +1,12 @@
+{
+    # Ne pas installer le certificat local dans le conteneur
+    skip_install_trust
+}
+
+{$SERVER_NAME:localhost} {
+    root /app/public
+    encode zstd br gzip
+
+    # Exécute PHP et renvoie vers public/index.php les URL qui ne sont pas des fichiers
+    php_server
+}
